@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>imSpoofing — Secure Comms</title>
+    <meta name="description" content="Privacy-first tools for secure communications. Join our Telegram: t.me/imSpoofing">
+    <meta property="og:title" content="im Spoofing — Secure Comms">
+    <meta property="og:description" content="Join our Telegram community for updates: t.me/imSpoofing">
+    <meta property="og:image" content="assets/og-cover.png">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="assets/logo.svg">
+    <!-- Tailwind via CDN for zero build tooling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Plausible Analytics (replace data-domain with your domain when you have one) -->
+    <script defer data-domain="imspoofing.example" src="https://plausible.io/js/script.js"></script>
+  </head>
+  <body class="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 text-white">
+    <header class="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="assets/logo.png" class="h-10 w-10" alt="im Spoofing logo" />
+        <span class="text-xl font-bold tracking-tight">imSpoofing</span>
+      </div>
+      <a href="https://t.me/imSpoofing" target="_blank" rel="noreferrer noopener"
+         class="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm hover:bg-white/10 transition">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 24 24" class="h-4 w-4"><path fill="currentColor" d="M9.03 14.59L8.9 18a1 1 0 0 0 1.7.7l2.29-2.3l3.91 2.86a1 1 0 0 0 1.57-.64l2.63-12.61a1 1 0 0 0-1.35-1.13L3.3 9.5a1 1 0 0 0 .01 1.88l5.71 2.2a.5.5 0 0 1 .01.93z"/></svg>
+        Join our Telegram
+      </a>
+    </header>
+
+    <!-- HERO -->
+    <main class="max-w-6xl mx-auto px-6 pt-10 pb-20 grid lg:grid-cols-2 gap-10 items-center">
+      <!-- LEFT: Text content -->
+      <section class="order-2 lg:order-1">
+        <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight">
+          Privacy-first tools for
+          <span class="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-300 to-blue-300">secure communications</span>
+        </h1>
+        <p class="mt-5 text-white/80 max-w-prose">
+          im Spoofing builds simple, modern utilities designed to help you manage identity and messaging with control and clarity.
+          Connect with our community for updates, support, and early features.
+        </p>
+        <div class="mt-8 flex flex-wrap items-center gap-3">
+          <a href="https://t.me/imSpoofing" target="_blank" rel="noreferrer noopener"
+             class="inline-flex items-center gap-2 rounded-2xl px-5 py-3 font-semibold ring-1 ring-white/15 bg-cyan-500/20 hover:bg-cyan-400/25 transition shadow-sm backdrop-blur">
+            <span>Join us on Telegram</span>
+          </a>
+          <a href="#features" class="inline-flex items-center gap-2 rounded-2xl px-5 py-3 font-semibold ring-1 ring-white/15 hover:bg-white/10 transition">
+            <span>See what we offer</span>
+          </a>
+        </div>
+        <p class="mt-3 text-xs text-white/50">Note: im Spoofing promotes ethical, lawful use of privacy tools.</p>
+      </section>
+
+      <!-- RIGHT: Dark glass call UI -->
+      <section class="order-1 lg:order-2">
+        <div class="rounded-3xl p-6 shadow-2xl ring-1 ring-white/10 bg-white/5 backdrop-blur">
+          <div class="text-center">
+            <div class="aspect-square rounded-full border-8 border-slate-900 bg-white/1 grid place-items-center mx-auto w-24">
+              <img src="assets/logo.png" alt="im Spoofing logo" class="w-14" />
+            </div>
+            <p class="mt-4 text-white font-semibold">Try imSpoofing For Free !</p>
+            <p class="mt-1 text-sm text-white/60">Try a one minute test call for free</p>
+          </div>
+
+          <form id="demo-call-form" class="mt-6 space-y-3" onsubmit="return false;" aria-label="Demo call form (non-functional)">
+            <label class="block text-xs text-white/70" for="caller-number">Enter Caller Number</label>
+            <input id="caller-number" type="text" inputmode="tel" placeholder="+1234567890"
+                   class="w-full rounded-xl px-4 py-3 bg-white/10 text-white ring-1 ring-white/10 placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-cyan-300/60" />
+
+            <label class="block text-xs text-white/70" for="dest-number">Enter Destination Number</label>
+            <input id="dest-number" type="text" inputmode="tel" placeholder="+1987654321"
+                   class="w-full rounded-xl px-4 py-3 bg-white/10 text-white ring-1 ring-white/10 placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-cyan-300/60" />
+
+            <label class="block text-xs text-white/70" for="third-number">Enter Spoofed Number</label>
+            <input id="third-number" type="text" inputmode="tel" placeholder="+18881231234"
+                   class="w-full rounded-xl px-4 py-3 bg-white/10 text-white ring-1 ring-white/10 placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-cyan-300/60" />
+
+            <!-- Persona picker (UI-only) -->
+            <div class="mt-3 rounded-xl p-3 bg-white/5 ring-1 ring-white/10">
+              <p class="text-sm text-white/80">Voice Changer</p>
+
+              <div class="mt-3 grid grid-cols-3 gap-2">
+                <!-- X -->
+                <div class="space-y-2">
+                  <button type="button"
+                          class="persona-btn w-full rounded-lg p-3 text-base ring-1 ring-white/10 bg-white/10 hover:ring-cyan-300/60 transition flex items-center justify-center gap-2"
+                          data-voice="x" aria-expanded="false" aria-controls="panel-x">
+                    <span class="font-semibold">X</span>
+                  </button>
+                  <div id="panel-x" class="persona-panel hidden rounded-lg p-3 ring-1 ring-white/10 bg-white/5">
+                    <label class="block text-xs text-white/70 mb-2">Voice pitch</label>
+                    <div class="flex items-center gap-3">
+                      <input type="range" min="0.5" max="1.5" step="0.01" value="1.00"
+                             class="persona-slider w-full accent-cyan-300"
+                             aria-label="Voice pitch for X">
+                      <output class="persona-output text-xs text-white/70 w-12 text-right">1.00×</output>
+                    </div>
+                    <p class="mt-1 text-[11px] text-white/50">Normal Voice</p>
+                  </div>
+                </div>
+
+                <!-- Male -->
+                <div class="space-y-2">
+                  <button type="button"
+                          class="persona-btn w-full rounded-lg p-3 text-base ring-1 ring-white/10 bg-white/10 hover:ring-cyan-300/60 transition flex items-center justify-center gap-2"
+                          data-voice="male" aria-expanded="false" aria-controls="panel-male">
+                    <span class="text-lg" aria-hidden="true">♂</span>
+                    <span class="sr-only">Male</span>
+                  </button>
+                  <div id="panel-male" class="persona-panel hidden rounded-lg p-3 ring-1 ring-white/10 bg-white/5">
+                    <label class="block text-xs text-white/70 mb-2">Voice pitch</label>
+                    <div class="flex items-center gap-3">
+                      <input type="range" min="0.5" max="1.5" step="0.01" value="0.95"
+                             class="persona-slider w-full accent-cyan-300"
+                             aria-label="Voice pitch for Male">
+                      <output class="persona-output text-xs text-white/70 w-12 text-right">0.95×</output>
+                    </div>
+                    <p class="mt-1 text-[11px] text-white/50">Male Voice</p>
+                  </div>
+                </div>
+
+                <!-- Female -->
+                <div class="space-y-2">
+                  <button type="button"
+                          class="persona-btn w-full rounded-lg p-3 text-base ring-1 ring-white/10 bg-white/10 hover:ring-cyan-300/60 transition flex items-center justify-center gap-2"
+                          data-voice="female" aria-expanded="false" aria-controls="panel-female">
+                    <span class="text-lg" aria-hidden="true">♀</span>
+                    <span class="sr-only">Female</span>
+                  </button>
+                  <div id="panel-female" class="persona-panel hidden rounded-lg p-3 ring-1 ring-white/10 bg-white/5">
+                    <label class="block text-xs text-white/70 mb-2">Voice pitch</label>
+                    <div class="flex items-center gap-3">
+                      <input type="range" min="0.5" max="1.5" step="0.01" value="1.05"
+                             class="persona-slider w-full accent-cyan-300"
+                             aria-label="Voice pitch for Female">
+                      <output class="persona-output text-xs text-white/70 w-12 text-right">1.05×</output>
+                    </div>
+                    <p class="mt-1 text-[11px] text-white/50">Female Voice</p>
+                  </div>
+                </div>
+              </div>
+
+              <p class="mt-2 text-xs text-white/50">This is a demo — your calls will be limited to 1 minute.</p>
+            </div>
+
+            <!-- Simple CAPTCHA (no API) -->
+            <div class="mt-4 rounded-xl p-3 bg-white/5 ring-1 ring-white/10">
+              <div class="flex items-center justify-between gap-3">
+                <p class="text-sm text-white/80">Captcha (type the code)</p>
+                <button type="button" id="captcha-refresh"
+                        class="rounded-lg px-3 py-1.5 text-xs ring-1 ring-white/10 bg-white/10 hover:bg-white/20 text-white transition">
+                  Refresh
+                </button>
+              </div>
+
+              <div class="mt-3 flex items-center gap-3">
+                <canvas id="captcha-canvas" width="160" height="48"
+                        class="rounded-md ring-1 ring-white/10 bg-white/90"></canvas>
+                <input id="captcha-input" type="text" autocomplete="off" inputmode="text"
+                       placeholder="Enter code"
+                       class="flex-1 rounded-xl px-3 py-2 bg-white/10 text-white ring-1 ring-white/10 placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-cyan-300/60" />
+              </div>
+
+              <p id="captcha-help" class="mt-2 text-[11px] text-white/50">
+                Can’t read it? Click Refresh for a new code.
+              </p>
+              <p id="captcha-error" class="mt-2 text-xs text-red-300 hidden">
+                Incorrect code. Please try again.
+              </p>
+            </div>
+
+            <div class="mt-4">
+              <button id="demo-call-btn" type="button"
+                      class="w-full inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-3 font-semibold ring-1 ring-white/10 bg-cyan-500/20 hover:bg-cyan-400/25 active:scale-[.99] transition shadow-sm backdrop-blur">
+                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="h-4 w-4" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 7.6 7.6l2.1-2.1a1 1 0 0 1 1-.2c1.1.4 2.3.6 3.5.6a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C9.3 21 3 14.7 3 6a1 1 0 0 1 1-1h2.3a1 1 0 0 1 1 1c0 1.2.2 2.4.6 3.5a1 1 0 0 1-.2 1l-2.1 2.1z"/></svg>
+                Call
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Modal popup (appears on "Call") -->
+      <div id="demo-call-modal" class="fixed inset-0 z-50 hidden items-center justify-center">
+        <div id="demo-call-overlay" class="absolute inset-0 bg-black/60 opacity-0 transition-opacity"></div>
+        <div role="dialog" aria-modal="true" aria-labelledby="demo-call-title"
+             class="relative w-full max-w-sm mx-4 scale-95 opacity-0 transition
+                    rounded-2xl p-6 ring-1 ring-white/10 bg-white/5 backdrop-blur shadow-2xl">
+          <h3 id="demo-call-title" class="text-lg font-semibold text-white">Contact via Telegram</h3>
+          <p class="mt-2 text-sm text-white/70">Our free test call service is unavailable right now. Please message us on Telegram for assistance.</p>
+          <div class="mt-4 flex gap-3">
+            <a href="https://t.me/imSpoofing" target="_blank" rel="noreferrer noopener"
+               class="flex-1 inline-flex items-center justify-center rounded-lg px-4 py-2 ring-1 ring-white/10 bg-cyan-500/20 hover:bg-cyan-400/25 transition">
+              Open Telegram
+            </a>
+            <button id="demo-modal-close"
+                    class="inline-flex items-center justify-center rounded-lg px-4 py-2 ring-1 ring-white/10 bg-white/10 hover:bg-white/20 text-white transition">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- FEATURES (animated lift + glow, glass style) -->
+    <section id="features" class="max-w-6xl mx-auto px-6 pb-24 grid md:grid-cols-3 gap-6">
+      <!-- Card 1 -->
+      <div tabindex="0"
+           class="group rounded-2xl p-5 bg-white/5 ring-1 ring-white/10 shadow-2xl backdrop-blur transition
+                  hover:-translate-y-1 hover:scale-[1.02] focus:-translate-y-1 focus:scale-[1.02]
+                  hover:ring-cyan-300/50 focus:ring-cyan-300/60 hover:shadow-cyan-500/10 focus:shadow-cyan-500/20">
+        <div class="h-10 w-10 grid place-items-center rounded-xl bg-white/10 mb-3 ring-1 ring-white/10
+                    group-hover:ring-cyan-300/40 group-focus:ring-cyan-300/40 transition" aria-hidden="true">
+          🔒
+        </div>
+        <h3 class="font-semibold text-lg text-white">Privacy by design</h3>
+        <p class="text-white/70 text-sm mt-1">
+          We minimize data exposure at every step — from identity handling to message flows.
+        </p>
+        <div class="mt-4 inline-flex items-center gap-2 text-sm text-white/70">
+          <span class="h-1.5 w-1.5 rounded-full bg-cyan-300/70"></span> End-to-end mindset
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div tabindex="0"
+           class="group rounded-2xl p-5 bg-white/5 ring-1 ring-white/10 shadow-2xl backdrop-blur transition
+                  hover:-translate-y-1 hover:scale-[1.02] focus:-translate-y-1 focus:scale-[1.02]
+                  hover:ring-cyan-300/50 focus:ring-cyan-300/60 hover:shadow-cyan-500/10 focus:shadow-cyan-500/20">
+        <div class="h-10 w-10 grid place-items-center rounded-xl bg-white/10 mb-3 ring-1 ring-white/10
+                    group-hover:ring-cyan-300/40 group-focus:ring-cyan-300/40 transition" aria-hidden="true">
+          💬
+        </div>
+        <h3 class="font-semibold text-lg text-white">OTP & Robo-Caller & More</h3>
+        <p class="text-white/70 text-sm mt-1">
+          We offer a variety of services such as robo-call bots, otp bots, and more. Contact us on telegram for more info.
+        </p>
+        <div class="mt-4 inline-flex items-center gap-2 text-sm text-white/70">
+          <span class="h-1.5 w-1.5 rounded-full bg-cyan-300/70"></span> Simple, fast, reliable
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div tabindex="0"
+           class="group rounded-2xl p-5 bg-white/5 ring-1 ring-white/10 shadow-2xl backdrop-blur transition
+                  hover:-translate-y-1 hover:scale-[1.02] focus:-translate-y-1 focus:scale-[1.02]
+                  hover:ring-cyan-300/50 focus:ring-cyan-300/60 hover:shadow-cyan-500/10 focus:shadow-cyan-500/20">
+        <div class="h-10 w-10 grid place-items-center rounded-xl bg-white/10 mb-3 ring-1 ring-white/10
+                    group-hover:ring-cyan-300/40 group-focus:ring-cyan-300/40 transition" aria-hidden="true">
+          ✨
+        </div>
+        <h3 class="font-semibold text-lg text-white">Clear Voice</h3>
+        <p class="text-white/70 text-sm mt-1">
+          Our spoof has multiple routes you can use, and the voice is clear as day.
+        </p>
+        <div class="mt-4 inline-flex items-center gap-2 text-sm text-white/70">
+          <span class="h-1.5 w-1.5 rounded-full bg-cyan-300/70"></span> Built with you, for you
+        </div>
+      </div>
+    </section>
+
+    <footer class="border-t border-white/10">
+      <div class="max-w-6xl mx-auto px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-white/60 text-sm">© <span id="year"></span> im Spoofing. All rights reserved.</p>
+        <a href="https://t.me/imSpoofing" target="_blank" rel="noreferrer noopener"
+           class="text-sm inline-flex items-center gap-2 rounded-full px-4 py-2 bg-white/10 hover:bg-white/15 transition ring-1 ring-white/15">Join our Telegram</a>
+      </div>
+    </footer>
+
+    <script>
+      // Footer year
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // ========= Modal (Telegram) & helpers =========
+      const modalEl   = document.getElementById('demo-call-modal');
+      const overlayEl = document.getElementById('demo-call-overlay');
+      const closeEl   = document.getElementById('demo-modal-close');
+      let lastFocused;
+
+      function openModal() {
+        lastFocused = document.activeElement;
+        modalEl.classList.remove('hidden');
+        modalEl.classList.add('flex');
+        requestAnimationFrame(() => {
+          overlayEl.classList.remove('opacity-0');
+          const card = overlayEl.nextElementSibling;
+          card.classList.remove('opacity-0','scale-95');
+          closeEl?.focus();
+        });
+        document.addEventListener('keydown', onModalKey);
+      }
+
+      function closeModal() {
+        overlayEl.classList.add('opacity-0');
+        const card = overlayEl.nextElementSibling;
+        card.classList.add('opacity-0','scale-95');
+        setTimeout(() => {
+          modalEl.classList.add('hidden');
+          modalEl.classList.remove('flex');
+          lastFocused?.focus();
+        }, 160);
+        document.removeEventListener('keydown', onModalKey);
+      }
+
+      function onModalKey(e) { if (e.key === 'Escape') closeModal(); }
+      overlayEl?.addEventListener('click', closeModal);
+      closeEl?.addEventListener('click', closeModal);
+
+      // ========= Persona panels & sliders =========
+      (function () {
+        const personaButtons = document.querySelectorAll('.persona-btn');
+        const closeAllPanels = () => {
+          document.querySelectorAll('.persona-panel').forEach(p => p.classList.add('hidden'));
+          personaButtons.forEach(b => {
+            b.setAttribute('aria-expanded', 'false');
+            b.classList.remove('ring-cyan-300','bg-white/15');
+          });
+        };
+
+        personaButtons.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const panelId = btn.getAttribute('aria-controls');
+            const panel = document.getElementById(panelId);
+            const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+            closeAllPanels();
+            if (!isOpen) {
+              btn.setAttribute('aria-expanded', 'true');
+              btn.classList.add('ring-cyan-300','bg-white/15');
+              panel.classList.remove('hidden');
+            }
+          });
+        });
+
+        document.querySelectorAll('.persona-panel').forEach(panel => {
+          const slider = panel.querySelector('.persona-slider');
+          const out = panel.querySelector('.persona-output');
+          if (!slider || !out) return;
+          const sync = () => { out.textContent = Number(slider.value).toFixed(2) + '×'; };
+          slider.addEventListener('input', sync);
+          sync();
+        });
+      })();
+
+      // ========= Simple CAPTCHA (no API) =========
+      let __captchaOK = false;
+      (function(){
+        const canvas = document.getElementById('captcha-canvas');
+        const input  = document.getElementById('captcha-input');
+        const refreshBtn = document.getElementById('captcha-refresh');
+        const errEl  = document.getElementById('captcha-error');
+        if (!canvas || !input || !refreshBtn) return;
+
+        const ctx = canvas.getContext('2d');
+        let captchaText = '';
+
+        const rand = (min, max) => Math.random() * (max - min) + min;
+
+        function generateText() {
+          const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+          captchaText = Array.from({length: 5}, () => chars[Math.floor(Math.random() * chars.length)]).join('');
+        }
+
+        function drawNoise() {
+          ctx.fillStyle = '#f8fafc';
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          for (let i = 0; i < 5; i++) {
+            ctx.strokeStyle = `rgba(0,0,0,${rand(0.05,0.15)})`;
+            ctx.beginPath();
+            ctx.moveTo(rand(0, canvas.width), rand(0, canvas.height));
+            ctx.lineTo(rand(0, canvas.width), rand(0, canvas.height));
+            ctx.stroke();
+          }
+          for (let i = 0; i < 40; i++) {
+            ctx.fillStyle = `rgba(0,0,0,${rand(0.05,0.2)})`;
+            ctx.fillRect(rand(0, canvas.width), rand(0, canvas.height), 1, 1);
+          }
+        }
+
+        function drawText() {
+          const baseX = 18;
+          const gap = 26;
+          for (let i = 0; i < captchaText.length; i++) {
+            const ch = captchaText[i];
+            const angle = rand(-0.25, 0.25);
+            ctx.save();
+            ctx.translate(baseX + i * gap, 30);
+            ctx.rotate(angle);
+            ctx.font = `700 ${rand(22, 26)}px ui-sans-serif`;
+            ctx.fillStyle = '#0f172a';
+            ctx.fillText(ch, 0, 0);
+            ctx.restore();
+          }
+        }
+
+        function renderCaptcha() { drawNoise(); drawText(); }
+        function resetError() {
+          errEl?.classList.add('hidden');
+          input?.classList.remove('ring-red-400','animate-pulse');
+        }
+        function regenerate() {
+          generateText();
+          renderCaptcha();
+          input.value = '';
+          resetError();
+          __captchaOK = false;
+        }
+
+        refreshBtn.addEventListener('click', regenerate);
+        input.addEventListener('input', () => {
+          resetError();
+          __captchaOK = (input.value.trim().toUpperCase() === captchaText.toUpperCase());
+        });
+
+        // Initialize
+        generateText();
+        renderCaptcha();
+      })();
+
+      // ========= Hook "Call" to require CAPTCHA success =========
+      (function(){
+        const btn = document.getElementById('demo-call-btn');
+        if (!btn) return;
+        btn.addEventListener('click', () => {
+          if (!__captchaOK) {
+            // show error if wrong
+            document.getElementById('captcha-error')?.classList.remove('hidden');
+            const input = document.getElementById('captcha-input');
+            input?.classList.add('ring-red-400','animate-pulse');
+            input?.focus();
+            return;
+          }
+          openModal();
+        });
+      })();
+    </script>
+  </body>
+</html>
